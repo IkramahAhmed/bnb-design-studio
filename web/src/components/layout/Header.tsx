@@ -21,7 +21,7 @@ export function Header() {
     <>
       <header className="nav">
         <a className="brand" href="#home" aria-label={`${SITE.name} home`} onClick={close}>
-          <Image src="/logo.jpg" alt={`${SITE.name} logo`} width={56} height={56} priority />
+          <Image src="/logo.png" alt={`${SITE.name} logo`} width={52} height={52} priority />
         </a>
 
         {/* Desktop nav links */}

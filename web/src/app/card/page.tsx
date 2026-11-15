@@ -22,7 +22,7 @@ export default async function CardPage() {
       <SimpleHeader />
       <main className={styles.ecard}>
         <div className={styles.banner}>{SITE.tagline}</div>
-        <Image className={styles.logo} src="/logo.jpg" alt={`${SITE.name} logo`} width={128} height={128} />
+        <Image className={styles.logo} src="/logo.png" alt={`${SITE.name} logo`} width={128} height={128} />
         <div className={styles.body}>
           <h1>{SITE.ownerName}</h1>
           <p className={styles.role}>Owner · Architectural Design</p>
