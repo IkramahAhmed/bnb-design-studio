@@ -35,7 +35,8 @@ main{position:relative;z-index:2}
 
 /* HUD */
 .hud{position:fixed;z-index:40;font:500 11px var(--font-mono),monospace;letter-spacing:.12em;color:var(--fg-soft);text-transform:uppercase}
-.hud-l{left:max(16px,4vw);bottom:26px;display:flex;gap:10px;align-items:baseline;background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 10px}
+.hud-l{left:max(16px,4vw);bottom:26px;display:flex;gap:10px;align-items:baseline;background:rgba(235,241,232,.92);backdrop-filter:blur(22px) saturate(1.6);-webkit-backdrop-filter:blur(22px) saturate(1.6);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 10px}
+body[data-theme="dark"] .hud-l{background:rgba(8,18,13,.88)}
 .hud-l .hud-num{font:600 24px var(--font-display),sans-serif;letter-spacing:.02em;color:var(--fg)}
 .hud-l .hud-name{margin-left:8px;padding-left:10px;border-left:1px solid var(--line)}
 .rail{position:fixed;right:2vw;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:12px}
