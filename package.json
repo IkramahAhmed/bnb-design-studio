@@ -1,0 +1,9 @@
+{
+  "name": "bnb-design-studio-site",
+  "private": true,
+  "scripts": {
+    "build": "esbuild website/js/main.js --bundle --minify --format=iife --outfile=website/js/app.js"
+  },
+  "dependencies": { "three": "0.160.0" },
+  "devDependencies": { "esbuild": "0.24.0" }
+}

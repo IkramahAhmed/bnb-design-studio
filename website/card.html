@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Babar | BnB Design Studio Digital Card</title>
+<meta name="description" content="Digital business card for BnB Design Studio, architectural design, structural and MEP, Wylie, Texas. Tap to call, email or save to contacts.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/pages.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html" aria-label="BnB Design Studio home"><img src="assets/logo.jpg" alt="BnB Design Studio" width="52" height="52"></a>
+  <a class="back" href="index.html">← Website</a>
+</header>
+
+<main class="ecard">
+  <div class="ec-head"><span class="tag">Your Dream, My Design</span></div>
+  <img class="ec-logo" src="assets/logo.jpg" alt="BnB Architecture Design Studio logo" width="128" height="128">
+  <div class="ec-body">
+    <!-- TODO: confirm full name and designation with the client -->
+    <h1>Babar</h1>
+    <p class="role">Owner · Architectural Design</p>
+    <p class="sub">BnB Design Studio<br>Wylie, Texas 75098 · Serving DFW since 2019</p>
+
+    <div class="actions">
+      <a class="btn" href="tel:+19407334995"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call +1 (940) 733-4995</a>
+      <a class="btn alt" href="mailto:info@bnbdesignstudio.net"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@bnbdesignstudio.net</a>
+      <a class="btn alt" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>bnbdesignstudio.net</a>
+      <a class="btn alt" href="assets/babar-bnb-design-studio.vcf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>Save to contacts</a>
+    </div>
+
+    <div class="qr">
+      <div id="qr" aria-label="QR code linking to this card"></div>
+      <small>Scan to share this card</small>
+      <button class="btn alt share" id="shareBtn" type="button">Share card</button>
+    </div>
+  </div>
+</main>
+
+<script>
+  // QR points at this page (works on any domain once deployed)
+  window.addEventListener('load', () => {
+    const url = location.href.split('#')[0];
+    if (window.qrcode) {
+      const q = qrcode(0, 'M'); q.addData(url); q.make();
+      document.getElementById('qr').innerHTML = q.createImgTag(6, 0);
+    }
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      if (navigator.share) { try { await navigator.share({ title: 'BnB Design Studio', url }); } catch (e) {} }
+      else { try { await navigator.clipboard.writeText(url); document.getElementById('shareBtn').textContent = 'Link copied'; } catch (e) {} }
+    });
+  });
+</script>
+</body>
+</html>

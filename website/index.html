@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BnB Design Studio | Architectural Design, Structural & MEP | Wylie, Texas</title>
+<meta name="description" content="BnB Design Studio provides architectural design, structural design, MEP engineering and city permit drawing sets across the Dallas-Fort Worth Metroplex. Your Dream, My Design.">
+<meta name="theme-color" content="#1b6b25">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.9/dist/lenis.min.js" defer></script>
+<script src="js/app.js?v=16" defer></script>
+</head>
+<body data-theme="light">
+
+<!-- Loader -->
+<div id="loader" aria-hidden="true">
+  <div class="ld-inner">
+    <img src="assets/logo.jpg" alt="" width="120" height="120">
+    <div class="ld-bar"><i id="ldBar"></i></div>
+    <div class="ld-txt"><span>BUILDING MODEL</span><span id="ldPct">0%</span></div>
+  </div>
+</div>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="prog" aria-hidden="true"></div>
+<div class="dock" role="group" aria-label="3D house controls">
+  <button id="btnL" type="button" aria-label="Turn house left">&#8249;</button>
+  <button id="btnNight" type="button">Night</button>
+  <button id="btnR" type="button" aria-label="Turn house right">&#8250;</button>
+  <button id="btnReset" type="button">Reset</button>
+</div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="nav">
+  <a class="brand" href="#home" data-go aria-label="BnB Design Studio home"><img src="assets/logo.jpg" alt="BnB Design Studio" width="56" height="56"></a>
+  <nav class="links" aria-label="Main">
+    <a href="#about" data-go>About</a>
+    <a href="#services" data-go>Services</a>
+    <a href="#approach" data-go>Approach</a>
+    <a href="#portfolio" data-go>Portfolio</a>
+    <a href="#contact" data-go>Contact</a>
+  </nav>
+  <a class="btn btn-sm" href="#contact" data-go>Start a project</a>
+</header>
+
+<!-- HUD -->
+<div class="hud hud-l" aria-hidden="true"><span id="hudNum">01</span><span class="sl">/ 09</span><span id="hudName">WELCOME</span></div>
+<div class="hud hud-r" aria-hidden="true"><span id="hudCoord">X 0 &nbsp; Y 0 &nbsp; Z 0</span></div>
+<ul class="rail" id="rail" aria-hidden="true"></ul>
+
+<main>
+
+<!-- 0 HERO -->
+<section class="panel left" id="home" data-scene="0" data-name="Welcome">
+  <div class="hero">
+    <p class="eyebrow rv" style="--d:.1s">Architecture · Structural · MEP · Permit Sets</p>
+    <h1 class="rv" style="--d:.2s"><span>Your Dream,</span><span class="g">My Design.</span></h1>
+    <p class="lede rv" style="--d:.35s">Homes, restaurants, shops and offices across Dallas-Fort Worth. Tell us your idea and we turn it into plans you can build from and the city will approve.</p>
+    <p class="drag-hint rv" id="dragHint" style="--d:.8s">Drag anywhere to turn the house</p>
+    <div class="cta rv" style="--d:.5s">
+      <a class="btn" href="#contact" data-go>Start a project</a>
+      <a class="btn ghost" href="#services" data-go>Explore services</a>
+    </div>
+    <p class="loc rv" style="--d:.65s"><i></i> Wylie, Texas 75098 &nbsp;·&nbsp; Serving DFW since 2019</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span></span>Scroll to explore</div>
+</section>
+
+<!-- 1 ABOUT -->
+<section class="panel right" id="about" data-scene="1" data-name="About">
+  <div class="card">
+    <p class="eyebrow rv">About us</p>
+    <h2 class="rv">Ideas into <em>well-coordinated</em> design.</h2>
+    <p class="rv">BnB Design Studio is an architectural design studio based in Wylie, Texas, providing architectural, structural and Mechanical, Electrical &amp; Plumbing design throughout the DFW Metroplex.</p>
+    <p class="rv">Since 2019 we have worked with property owners, developers, business owners, contractors and investors, turning project requirements into practical, functional designs that balance aesthetics, building code and construction practicality.</p>
+    <div class="stats rv">
+      <div><b>2019</b><span>Established</span></div>
+      <div><b>3-in-1</b><span>Arch · Struct · MEP</span></div>
+      <div><b>DFW</b><span>Metroplex</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 ARCHITECTURAL -->
+<section class="panel left" id="services" data-scene="2" data-name="Architectural">
+  <div class="card">
+    <span class="big-n rv">01</span>
+    <p class="eyebrow rv">Layer · Architecture</p>
+    <h2 class="rv">Architectural Design</h2>
+    <p class="kicker rv">We draw the building: how it looks, how it flows and how it fits your land.</p>
+    <ul class="ticks rv">
+      <li>New Construction &amp; Building Design</li>
+      <li>Commercial Building Design</li>
+      <li>Retail Stores &amp; Shopping Centers</li>
+      <li>Restaurants, Cafés &amp; Coffee Shops</li>
+      <li>Office Buildings &amp; Tenant Improvements</li>
+      <li>Interior Remodeling &amp; Space Planning</li>
+      <li>Renovations &amp; Additions</li>
+      <li>As-Built Drawings &amp; Existing Conditions</li>
+      <li>Site Plans, Floor Plans, Elevations &amp; Sections</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3 STRUCTURAL -->
+<section class="panel right" data-scene="3" data-name="Structural">
+  <div class="card">
+    <span class="big-n rv">02</span>
+    <p class="eyebrow rv">Layer · Structure</p>
+    <h2 class="rv">Structural Design</h2>
+    <p class="kicker rv">We make sure it stands strong: foundations, frames and the calculations behind them.</p>
+    <ul class="ticks rv">
+      <li>Foundation Plans &amp; Details</li>
+      <li>Structural Framing Plans</li>
+      <li>Steel, Wood &amp; Concrete Systems</li>
+      <li>Structural Modifications &amp; Additions</li>
+      <li>Structural Calculations &amp; Details</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 MEP -->
+<section class="panel left" data-scene="4" data-name="MEP Engineering">
+  <div class="card">
+    <span class="big-n rv">03</span>
+    <p class="eyebrow rv">Layer · MEP</p>
+    <h2 class="rv">Air, Power &amp; Water</h2>
+    <p class="kicker rv">Mechanical, Electrical and Plumbing (MEP): we plan it so the space is comfortable to live and work in.</p>
+    <ul class="ticks rv">
+      <li><i class="dot c1"></i>HVAC Layouts &amp; Mechanical Plans</li>
+      <li><i class="dot c2"></i>Electrical Power &amp; Lighting Plans</li>
+      <li><i class="dot c2"></i>Electrical Panel Schedules</li>
+      <li><i class="dot c3"></i>Plumbing Plans &amp; Fixture Layouts</li>
+      <li><i class="dot c3"></i>Water Supply &amp; Sanitary Waste Plans</li>
+      <li>Equipment Schedules &amp; Specifications</li>
+      <li>MEP Engineering Coordination</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5 PERMIT -->
+<section class="panel right" data-scene="5" data-name="Permit Sets">
+  <div class="card">
+    <span class="big-n rv">04</span>
+    <p class="eyebrow rv">Layer · Documentation</p>
+    <h2 class="rv">Permit-Ready Drawings</h2>
+    <p class="kicker rv">We prepare what the city needs and handle review comments, so you can start building sooner.</p>
+    <ul class="ticks rv">
+      <li>Complete Architectural Permit Sets</li>
+      <li>Structural Permit Drawing Sets</li>
+      <li>MEP Permit Sets</li>
+      <li>Coordinated Construction Documents</li>
+      <li>Building Code &amp; Life Safety Plans</li>
+      <li>City Permit Submission Documentation</li>
+      <li>Plan Review Comments &amp; Revisions</li>
+      <li>Coordination with City Building Departments</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6 APPROACH -->
+<section class="panel left" id="approach" data-scene="6" data-name="Approach">
+  <div class="card wide">
+    <p class="eyebrow rv">Our approach</p>
+    <h2 class="rv">Planning, clear communication, coordinated drawings.</h2>
+    <p class="rv">We work closely with clients, contractors, consultants and engineers so project documentation is complete, practical and ready for construction and permit review.</p>
+    <ol class="steps rv">
+      <li><b>01</b><span>Concept &amp; existing building survey</span></li>
+      <li><b>02</b><span>Detailed construction documents</span></li>
+      <li><b>03</b><span>Permit submission &amp; revisions</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7 PORTFOLIO -->
+<section class="panel center" id="portfolio" data-scene="7" data-name="Portfolio">
+  <div class="port">
+    <p class="eyebrow rv">Selected work</p>
+    <h2 class="rv">From concept to reality.</h2>
+    <div class="grid">
+      <article class="proj tilt rv"><div class="ph"></div><h3>Restaurant Finish-Out</h3><span>Photos coming soon</span></article>
+      <article class="proj tilt rv"><div class="ph"></div><h3>Retail Development</h3><span>Photos coming soon</span></article>
+      <article class="proj tilt rv"><div class="ph"></div><h3>Commercial Renovation</h3><span>Photos coming soon</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- 8 CONTACT -->
+<section class="panel left" id="contact" data-scene="8" data-name="Contact">
+  <div class="card wide">
+    <p class="eyebrow rv">Let's talk</p>
+    <h2 class="rv">Your dream. <em>Our drawings.</em></h2>
+    <form id="contactForm" class="form rv" novalidate>
+      <div class="row2">
+        <label>Name<input name="name" type="text" autocomplete="name" required></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+      </div>
+      <div class="row2">
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Project type
+          <select name="type">
+            <option>Commercial building</option><option>Restaurant / Café</option><option>Retail</option>
+            <option>Office / Tenant improvement</option><option>Residential</option><option>Permit drawings only</option>
+          </select>
+        </label>
+      </div>
+      <label>Message<textarea name="msg" rows="2"></textarea></label>
+      <button class="btn" type="submit">Send message</button>
+      <p class="ok" id="formOk" role="status"></p>
+    </form>
+    <div class="contact-line">
+      <a href="tel:+19407334995">+1 (940) 733-4995</a>
+      <span>Wylie, Texas 75098</span>
+    </div>
+    <p class="foot">© 2026 BnB Design Studio · <a href="privacy.html">Privacy</a> · <a href="card.html">Digital card</a> · 3D model "Modern house of shapes" by Luna (CC BY)</p>
+  </div>
+</section>
+
+</main>
+
+<noscript><style>#loader{display:none}.rv{opacity:1!important;transform:none!important}</style></noscript>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# dependencies and build tools
+node_modules/
+
+# backups and large originals (kept locally only)
+backups/
+models/*original*.glb
+models/*.zip
+
+# client documents and source pictures
+*.pdf
+*.tif
+*.jpeg
+*.jpg.jpeg
+Architects on WEB.txt
+
+# local tooling
+.claude/
+.DS_Store
