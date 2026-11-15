@@ -35,9 +35,9 @@ main{position:relative;z-index:2}
 
 /* HUD */
 .hud{position:fixed;z-index:40;font:500 11px var(--font-mono),monospace;letter-spacing:.12em;color:var(--fg-soft);text-transform:uppercase}
-.hud-l{left:max(16px,4vw);bottom:26px;display:flex;gap:10px;align-items:baseline}
-.hud-l .hud-num{font:600 28px var(--font-display),sans-serif;letter-spacing:.02em;color:var(--fg)}
-.hud-l .hud-name{margin-left:10px;padding-left:14px;border-left:1px solid var(--line)}
+.hud-l{left:max(16px,4vw);bottom:26px;display:flex;gap:10px;align-items:baseline;background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 10px}
+.hud-l .hud-num{font:600 24px var(--font-display),sans-serif;letter-spacing:.02em;color:var(--fg)}
+.hud-l .hud-name{margin-left:8px;padding-left:10px;border-left:1px solid var(--line)}
 .rail{position:fixed;right:2vw;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:12px}
 .rail button{display:block;padding:0;background:none;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--fg-soft);cursor:pointer;transition:all .35s var(--ease)}
 .rail button.on{background:var(--accent);border-color:var(--accent);transform:scale(1.5)}
@@ -176,13 +176,13 @@ body[data-theme="dark"] .mob-nav{background:#0d1a10}
   /* Panels: reduce top padding, leave room at bottom for dock */
   .panel{padding:84px 4vw 100px}
   .panel.center{padding-bottom:100px}
-  /* Cards: comfortable size, no forced scroll */
-  .card{padding:22px 18px}
+  /* Cards: comfortable size, no scroll-trap */
+  .card{padding:22px 18px;max-height:none;overflow:visible}
   .card.wide{padding:22px 18px}
   #contact .card{max-height:none;overflow:visible}
-  /* CTA row: stack on tiny phones */
-  .cta{flex-direction:column;align-items:flex-start;gap:10px}
-  .cta .btn{width:100%;justify-content:center;padding:16px 24px}
+  /* CTA row: natural-width buttons, wrap if needed */
+  .cta{flex-wrap:wrap;gap:10px}
+  .cta .btn{padding:14px 22px;font-size:14px}
   /* Lede visible but smaller */
   .lede{font-size:.95rem;margin:14px 0 20px;max-width:100%}
   /* Heading size */

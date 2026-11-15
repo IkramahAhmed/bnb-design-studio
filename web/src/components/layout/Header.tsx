@@ -53,9 +53,9 @@ export function Header() {
         </button>
       </header>
 
-      {/* Mobile nav drawer */}
+      {/* Mobile nav drawer — click backdrop to close */}
       {open && (
-        <div id="mobile-nav" className="mob-nav" role="dialog" aria-label="Navigation menu">
+        <div id="mobile-nav" className="mob-nav" role="dialog" aria-label="Navigation menu" onClick={(e) => { if (e.target === e.currentTarget) close(); }}>
           <nav>
             {NAV_LINKS.map((link) => (
               <a key={link.href} href={link.href} onClick={close}>
