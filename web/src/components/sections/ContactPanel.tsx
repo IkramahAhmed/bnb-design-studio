@@ -22,6 +22,9 @@ export function ContactPanel() {
         <p className="foot">
           © {new Date().getFullYear()} {SITE.name} · <Link href="/privacy/">Privacy</Link> · <Link href="/card/">Digital card</Link>
         </p>
+        <p className="foot" style={{marginTop:'6px',opacity:.6}}>
+          Designed by <a href="https://sancytech.com" target="_blank" rel="noopener noreferrer">Sancy Tech</a>
+        </p>
       </Card>
     </Panel>
   );

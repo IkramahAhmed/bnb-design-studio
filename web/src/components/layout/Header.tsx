@@ -20,21 +20,30 @@ export function Header() {
   return (
     <>
       <header className="nav">
-        <a className="brand" href="#home" aria-label={`${SITE.name} home`} onClick={close}>
+        <a className="brand" href="#home" aria-label={`${SITE.name} home`} onClick={() => { close(); window.history.pushState(null, '', '/'); }}>
           <Image src="/logo.png" alt={`${SITE.name} logo`} width={52} height={52} priority />
         </a>
 
         {/* Desktop nav links */}
         <nav className="links" aria-label="Main">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href}>
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => window.history.pushState(null, '', link.path)}
+            >
               {link.label}
             </a>
           ))}
         </nav>
 
         {/* Desktop CTA */}
-        <Button href="#contact" variant="small" className="nav-cta">
+        <Button
+          href="#contact"
+          variant="small"
+          className="nav-cta"
+          onClick={() => window.history.pushState(null, '', '/contact/')}
+        >
           Start a project
         </Button>
 
@@ -58,11 +67,19 @@ export function Header() {
         <div id="mobile-nav" className="mob-nav" role="dialog" aria-label="Navigation menu" onClick={(e) => { if (e.target === e.currentTarget) close(); }}>
           <nav>
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} onClick={close}>
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => { close(); window.history.pushState(null, '', link.path); }}
+              >
                 {link.label}
               </a>
             ))}
-            <a href="#contact" className="btn btn-sm mob-cta" onClick={close}>
+            <a
+              href="#contact"
+              className="btn btn-sm mob-cta"
+              onClick={() => { close(); window.history.pushState(null, '', '/contact/'); }}
+            >
               Start a project
             </a>
           </nav>

@@ -15,12 +15,25 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#approach', label: 'Approach' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#about', label: 'About', path: '/about/' },
+  { href: '#services', label: 'Services', path: '/services/' },
+  { href: '#approach', label: 'Approach', path: '/approach/' },
+  { href: '#portfolio', label: 'Portfolio', path: '/portfolio/' },
+  { href: '#contact', label: 'Contact', path: '/contact/' },
 ] as const;
+
+/** Maps each section id → its canonical clean URL path (no hash). */
+export const SECTION_PATHS: Readonly<Record<string, string>> = {
+  home: '/',
+  about: '/about/',
+  services: '/services/',
+  structural: '/services/',
+  mep: '/services/',
+  permits: '/services/',
+  approach: '/approach/',
+  portfolio: '/portfolio/',
+  contact: '/contact/',
+};
 
 export interface ServiceTag {
   label: string;
