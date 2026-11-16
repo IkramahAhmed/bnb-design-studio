@@ -26,7 +26,6 @@ export default function Experience() {
   const [active, setActive] = useState(0);
   const [night, setNight] = useState(false);
   const [ready, setReady] = useState(false);
-  const [loaderGone, setLoaderGone] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -85,19 +84,19 @@ export default function Experience() {
   useEffect(() => {
     const section = SECTION_ORDER[active];
     const path = SECTION_PATHS[section.id] ?? '/';
-    if (typeof window !== 'undefined' && window.location.pathname !== path) {
+    if (window.location.pathname !== path) {
       window.history.replaceState(null, '', path);
     }
   }, [active]);
 
-  // After 3D scene is ready, scroll to section from stub page (stored in sessionStorage)
+  // After 3D scene is ready, scroll to the section matching the initial URL path
   useEffect(() => {
     if (!ready) return;
-    const target = typeof sessionStorage !== 'undefined'
-      ? sessionStorage.getItem('scrollToSection')
-      : null;
+    const pathname = window.location.pathname;
+    const target = Object.entries(SECTION_PATHS).find(
+      ([, path]) => path !== '/' && path === pathname
+    )?.[0];
     if (target) {
-      sessionStorage.removeItem('scrollToSection');
       const el = document.getElementById(target);
       if (el) {
         if (lenisRef.current) lenisRef.current.scrollTo(el, { duration: 0.1 });
@@ -121,17 +120,11 @@ export default function Experience() {
 
   return (
     <>
-      {!loaderGone && (
-        <div
-          className={ready ? 'site-loader out' : 'site-loader'}
-          onAnimationEnd={() => { if (ready) setLoaderGone(true); }}
-          aria-hidden="true"
-        >
-          <Image src="/logo.png" alt="BnB Design Studio" width={88} height={88} priority />
-          <p className="loader-name">BnB Design Studio</p>
-          <div className="loader-bar"><span /></div>
-        </div>
-      )}
+      <div className={ready ? 'site-loader out' : 'site-loader'} aria-hidden="true">
+        <Image src="/logo.png" alt="BnB Design Studio" width={88} height={88} priority />
+        <p className="loader-name">BnB Design Studio</p>
+        <div className="loader-bar"><span /></div>
+      </div>
       <canvas ref={canvasRef} className={ready ? 'stage ready' : 'stage'} aria-hidden="true" />
       <div className="progress" ref={progressRef} aria-hidden="true" />
       {ready && (

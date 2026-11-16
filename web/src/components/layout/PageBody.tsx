@@ -9,16 +9,10 @@ import { Portfolio } from '@/components/sections/Portfolio';
 import { ServicePanel } from '@/components/sections/ServicePanel';
 import { SERVICES } from '@/content/site';
 
-interface PageBodyProps {
-  /** Optional extra content (e.g. SectionScrollTo) injected before <main>. */
-  children?: React.ReactNode;
-}
-
-export function PageBody({ children }: PageBodyProps) {
+export function PageBody() {
   return (
     <>
       <Header />
-      {children}
       <main>
         <Hero />
         <About />

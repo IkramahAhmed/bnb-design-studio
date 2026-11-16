@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import { PageBody } from '@/components/layout/PageBody';
-import { SectionScrollTo } from '@/components/SectionScrollTo';
+
+export const metadata: Metadata = {
+  title: 'Services',
+  description: 'Architectural design, structural engineering, MEP systems, and permit drawing sets across the Dallas-Fort Worth Metroplex.',
+  alternates: { canonical: '/services/' },
+};
 
 export default function ServicesPage() {
-  return <PageBody><SectionScrollTo section="services" /></PageBody>;
+  return <PageBody />;
 }

@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import { PageBody } from '@/components/layout/PageBody';
-import { SectionScrollTo } from '@/components/SectionScrollTo';
+
+export const metadata: Metadata = {
+  title: 'Portfolio',
+  description: 'Browse BnB Design Studio\'s portfolio of residential and commercial architectural projects across North Texas.',
+  alternates: { canonical: '/portfolio/' },
+};
 
 export default function PortfolioPage() {
-  return <PageBody><SectionScrollTo section="portfolio" /></PageBody>;
+  return <PageBody />;
 }
