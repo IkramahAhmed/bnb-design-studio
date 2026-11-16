@@ -41,7 +41,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <JsonLd />
       </head>
-      <body data-theme="light">{children}</body>
+      <body data-theme="light">
+        {/* Loader is in the initial HTML so it covers the page on the very first paint — before any JS loads */}
+        <div className="site-loader" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="" width={88} height={88} />
+          <p className="loader-name">{SITE.name}</p>
+          <div className="loader-bar"><span /></div>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }

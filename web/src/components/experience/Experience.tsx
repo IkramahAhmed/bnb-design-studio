@@ -1,7 +1,6 @@
 'use client';
 
 import 'lenis/dist/lenis.css';
-import Image from 'next/image';
 import Lenis from 'lenis';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ScrollMap } from '@/lib/scrollMap';
@@ -80,6 +79,12 @@ export default function Experience() {
     };
   }, []);
 
+  // Fade out the layout-level loader once the 3D scene is ready
+  useEffect(() => {
+    if (!ready) return;
+    document.querySelector<HTMLElement>('.site-loader')?.classList.add('out');
+  }, [ready]);
+
   // Update URL to clean path as sections scroll by (no hash)
   useEffect(() => {
     const section = SECTION_ORDER[active];
@@ -120,11 +125,6 @@ export default function Experience() {
 
   return (
     <>
-      <div className={ready ? 'site-loader out' : 'site-loader'} aria-hidden="true">
-        <Image src="/logo.png" alt="BnB Design Studio" width={88} height={88} priority />
-        <p className="loader-name">BnB Design Studio</p>
-        <div className="loader-bar"><span /></div>
-      </div>
       <canvas ref={canvasRef} className={ready ? 'stage ready' : 'stage'} aria-hidden="true" />
       <div className="progress" ref={progressRef} aria-hidden="true" />
       {ready && (
